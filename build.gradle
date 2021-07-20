@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'berg.lucas'
-version '1.0'
+version '1.0.0'
 
 repositories {
     maven {
