@@ -48,7 +48,7 @@ public class EventListener implements Listener {
      * @param multiplier the multiplier.
      *
      * @modifies this
-     * @throws IllegalArgumentException if multiplier < 0;
+     * @throws IllegalArgumentException if multiplier &lt; 0;
      * @effects sets the multiplier.
      */
     public void setMultiplier(int multiplier) {
@@ -107,15 +107,10 @@ public class EventListener implements Listener {
         Double probability = this.targets.get(block.getType());
         Player player = event.getPlayer();
         World world = player.getWorld();
-        ItemStack tool = player.getItemInUse();
+        ItemStack tool = player.getInventory().getItemInMainHand();
 
-        // Gets the drop
-        Collection<ItemStack> items;
-        if (tool == null) {
-            items = block.getDrops();
-        } else {
-            items = block.getDrops(tool, player);
-        }
+        // Gets the drops
+        Collection<ItemStack> items = block.getDrops(tool, player);
 
         // Loop over the items
         for (ItemStack item : items) {
