@@ -21,6 +21,7 @@ The config file looks like this :
 ```yaml
 Multiplier: 2 # The multiplier which will increase the amount of drops.
 
+# https://papermc.io/javadocs/paper/1.17/org/bukkit/Material.html
 Blocks: # The blocks you want
     # Block: Probability (between 0.0 and 1.0)
     OAK_LOG: 0.2 # Example
