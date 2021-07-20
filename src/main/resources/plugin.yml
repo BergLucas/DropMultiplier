@@ -1,0 +1,9 @@
+name: DropMultiplier
+main: berg.lucas.dropmultiplier.DropMultiplier
+version: 1.0
+api-version: 1.17
+commands:
+  dropmultiplier:
+    description: Displays info about the plugin.
+    usage: <usage> /dropmultiplier (reload)
+    permission: dropmultiplier

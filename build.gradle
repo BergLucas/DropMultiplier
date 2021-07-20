@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'berg.lucas'
+version '1.0'
+
+repositories {
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = project.sourceSets.main.compileClasspath
+    options.tags = [ "overview", "specfield", "derivedfield", "invariant", "requires", "modifies", "effects"]
+}
+
+dependencies {
+    compileOnly 'org.jetbrains:annotations:18.0.0'
+    compileOnly 'io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT'
+}
+
+jar {
+    manifest { 
+        attributes "Main-Class": "berg.lucas.dropmultiplier.DropMultiplier"
+    }  
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
