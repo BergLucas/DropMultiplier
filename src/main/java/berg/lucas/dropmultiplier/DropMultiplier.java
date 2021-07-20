@@ -51,8 +51,21 @@ public class DropMultiplier extends JavaPlugin {
         if (blocks != null) {
             // Convert the string in Material and get their probabilities
             for (Map.Entry<String, Object> entry : blocks.getValues(false).entrySet()) {
-                Material material = Material.valueOf(entry.getKey());
-                if (!(entry.getValue() instanceof Double probability)) throw new InvalidConfigurationException("A probability must be a Double.");
+                // Get material
+                String materialName = entry.getKey();
+                Material material;
+                try {
+                    material = Material.valueOf(materialName);
+                } catch (IllegalArgumentException e) {
+                    throw new InvalidConfigurationException(String.format("Invalid material : %s", materialName));
+                }
+
+                // Get probability
+                Object probabilityObject = entry.getValue();
+                if (!(probabilityObject instanceof Double probability)) {
+                    throw new InvalidConfigurationException(String.format("A probability must be a Double, not : %s", probabilityObject));
+                }
+                
                 target.put(material, probability);
             }
         }
