@@ -1,7 +1,12 @@
 name: DropMultiplier
-main: berg.lucas.dropmultiplier.DropMultiplier
 version: 1.0
+description: DropMultiplier allows to multiply the amount of drops of some blocks.
+author: Berg Lucas
+website: https://github.com/BergLucas/DropMultiplier
+
+main: berg.lucas.dropmultiplier.DropMultiplier
 api-version: 1.17
+
 commands:
   dropmultiplier:
     description: Displays info about the plugin.
