@@ -7,7 +7,8 @@ These blocks must not have been placed by a player beforehand.
 
 DropMultiplier requires:
 
--   Paper/Spigot
+-   Paper/Spigot 1.17+
+-   Java 16
 
 ## Download
 
