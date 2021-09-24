@@ -1,6 +1,7 @@
 package berg.lucas.dropmultiplier;
 
 import com.google.common.base.Preconditions;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -93,6 +94,11 @@ public class EventListener implements Listener {
      */
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
+
+        // Return if player is in creative mode
+        if (player.getGameMode() == GameMode.CREATIVE) return;
+
         Block block = event.getBlock();
 
         // Return if unwanted block
@@ -105,7 +111,6 @@ public class EventListener implements Listener {
 
         // Get the info
         Double probability = this.targets.get(block.getType());
-        Player player = event.getPlayer();
         World world = player.getWorld();
         ItemStack tool = player.getInventory().getItemInMainHand();
 
